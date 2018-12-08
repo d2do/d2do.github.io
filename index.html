@@ -1,233 +1,465 @@
 <?php
-error_reporting(0);
-// include_once('../app_config.php');
-// include(APP_PATH.'libs/head1.php');
- ?>
- <link rel="stylesheet" type="text/css" href="../assets/css/workstyle.css">
-     <script>
-        $(document).ready(function(){
-            if ($(window).width() < 768){
-                $(".item__title").click(function(){
-                    $(this).next().slideToggle();
-                    $(this).toggleClass('active');
-                });}
-        });
-    </script>
+// Author: TRUNG DEP TRAI
+// $path = realpath(dirname(__FILE__)) . "/";
+// include_once($path.'app_config.php');
+// include($path.'libs/meta.php');
+get_header();
+?>
 </head>
-<body id="workstyle" class='workstyle'>
+
+<body id="top" class='top'>
     <!-- Header
     ================================================== -->
-<!--     <?php include(APP_PATH.'libs/header1.php'); ?> -->
+    <?php include(APP_PATH.'/libs/header.php'); ?>
+
     <div id="wrap">
-        <!-- Main Content
-        ================================================== -->
-        <main>
-            <section class="common_heading">
-                <div class="container">
-                    <h2 class="common_heading__h2">働き方改革</h2>
-                </div>
-            </section>
-            <section class="common_breadcrumbs">  
-                <div class="container">
-                    <ul class="common_breadcrumbs__list">
-                        <li class="common_breadcrumbs__item"><a href="<?php echo APP_URL; ?>">HOME</a></li> /
-                        <li class="common_breadcrumbs__item"><a href="<?php echo APP_URL; ?>products">働き方改革と健康経営を支援する日通システム</a></li> /
-                        <li class="common_breadcrumbs__item">働き方改革</li>
-                    </ul>
-                </div>
-            </section>
-            <!-- header -->
+       	<div class="top__mainphoto">
+       		<div class="top__mainphoto--wrap">
+       			<ul class="top__mainphoto--slick">
+       				<li class="slide0">
+		       			<img src="<?php echo APP_ASSETS_IMG ?>top/img_banner01@2x.png" alt="" class="pc">
+		       			<img src="<?php echo APP_ASSETS_IMG ?>top/img_banner_sp01@2x.png" alt="" class="sp">      
+		       			<div class="top__mainphoto--txtbnr">
+		       				<div class="w1086">
+			       				<p class="p01">家づくりを通して<br>
+								家族の笑顔と<br>
+								絆を深める</p>
+			       				<h1 class="p02 pc">良い品質と安心価格の絆ハウス</h1>       					
+		       				</div>
+		       			</div> 					
+       				</li>
+       				<li class="slide0 slide2">
+		       			<img src="<?php echo APP_ASSETS_IMG ?>top/img_banner02@2x.png" alt="" class="pc">
+		       			<img src="<?php echo APP_ASSETS_IMG ?>top/img_banner_sp02@2x.png" alt="" class="sp">   
+		       			<div class="top__mainphoto--txtbnr">
+		       				<div class="w1086">
+			       				<p class="p01">家づくりを通して<br>
+								家族の笑顔と<br>
+								絆を深める</p>
+			       				<h1 class="p02 pc">良い品質と安心価格の絆ハウス</h1>       					
+		       				</div>
+		       			</div>    					
+       				</li>
+       				<li class="slide0">
+		       			<img src="<?php echo APP_ASSETS_IMG ?>top/img_banner03@2x.png" alt="" class="pc">
+		       			<img src="<?php echo APP_ASSETS_IMG ?>top/img_banner_sp03@2x.png" alt="" class="sp">      
+		       			<div class="top__mainphoto--txtbnr">
+		       				<div class="w1086">
+			       				<p class="p01">家づくりを通して<br>
+								家族の笑顔と<br>
+								絆を深める</p>
+			       				<h1 class="p02 pc">良い品質と安心価格の絆ハウス</h1>       					
+		       				</div>
+		       			</div> 					
+       				</li>
+       			</ul>
+       		</div>
+       		<div class="sp">
+       			<p class="top__mainphoto--text01"><span>良い品質</span>と<span>安心価格</span>の絆ハウス</p>
+       			<ul class="top__mainphoto--nav">
+       				<li class="concept"><a href="#concept">絆ハウスの<br>
+					家づくり</a></li>
+       				<li class="works"><a href="<?php echo APP_URL; ?>works/">事例集</a></li>
+       				<li class="event"><a href="<?php echo APP_URL; ?>event/">見学会・<br>
+					セミナー</a></li>
+       				<li class="company"><a href="<?php echo APP_URL; ?>company/">会社案内・<br>
+					スタッフ</a></li>
+       			</ul>
+       		</div>
+    		<div class="w1000">
+       			<div class="top__mainphoto--titnews">
+       				<p class="p01">NEWS</p>
+       				<p class="p02">新着情報</p>
+       			</div>
+       			<div class="top__mainphoto--listnews">
+					<?php 
+					$eventt = array(
+						'post_type' => 'event',
+						'posts_per_page' => 2,
+						'post_status' => 'publish',
+						// 'order' => 'DESC'
+					);
+					$wp_eventt = new WP_Query($eventt);
+					if($wp_eventt->have_posts()) :
+						while($wp_eventt->have_posts()) :
+							$wp_eventt->the_post();
+							$tit_eventt = get_the_title();
+							$link_eventt = get_the_permalink();
+					 ?>
+					<div class="top__mainphoto--itemnews">
+						<p class="date"><?php the_time('Y/m/d'); ?></p>
+						<?php 
+				            $termname = '';
+				            $terms = get_the_terms($post->ID, 'eventcat');
+				            foreach($terms as $term) { 
+				                $termname = $term->name; 
+				                echo '<p class="cate cate01"><a href="'.get_term_link($term).'">'.$termname.'</a></p>';
+				            }
+				         ?>
+						<p class="title"><a href="<?php echo $link_eventt; ?>"><?php echo my_cut_string($tit_eventt,35); ?></a></p>
+					</div>
+					<?php 
+						endwhile;
+					endif;	
+					 ?>
+					<?php 
+					$st_blogg = array(
+						'post_type' => 'blog',
+						'posts_per_page' => 2,
+						'post_status' => 'publish',
+						// 'order' => 'DESC'
+					);
+					$wp_st_blogg = new WP_Query($st_blogg);
+					if($wp_st_blogg->have_posts()) :
+						while($wp_st_blogg->have_posts()) :
+							$wp_st_blogg->the_post();
+							$tit_st_blogg = get_the_title();
+							$link_st_blogg = get_the_permalink();
+					 ?>
+					<div class="top__mainphoto--itemnews">
+						<p class="date"><?php the_time('Y/m/d'); ?></p>
+						<?php 
+				            // $termname = '';
+				            // $terms = get_the_terms($post->ID, 'blogcat');
+				            // foreach($terms as $term) { 
+				            //     $termname = $term->name; 
+				            //     echo '<p class="cate cate02"><a href="'.get_term_link($term).'">'.$termname.'</a></p>';
+				            // }
+				         ?>
+				        <p class="cate cate02">スタッフブログ</p>
+						<p class="title"><a href="<?php echo $link_st_blogg; ?>"><?php echo my_cut_string($tit_st_blogg,35); ?></a></p>
+					</div>
+					<?php 
+						endwhile;
+					endif;	
+					 ?>
+       			</div>
+       			<ul class="top__mainphoto--linkmore">
+       				<li><a href="<?php echo APP_URL ?>event/">見学会・セミナー一覧</a></li>
+       				<li><a href="<?php echo APP_URL ?>blog/">スタッフブログ一覧</a></li>
+       			</ul>
+       		</div>
+       	</div>
+       	<div class="top__mainphotobg"></div>
+		<div class="top__concept">
+			<div class="top__concept--left">
+				<div class="top__concept--left-wrap">
+					<p>CONCEPT</p>
+					<div class="sp">
+						<figure>
+							<img src="<?php echo APP_ASSETS_IMG ?>top/img_concept_big.jpg" alt="">
+						</figure>						
+					</div>
+					<h2>子供との絆、家族の絆を深める<br>
+					そのための家だからこそ<br>
+					<span>安心価格</span> で <span>高品質</span><br>
+					そして、理想も全て叶えます</h2>						
+				</div>
+			</div>
+			<div class="top__concept--right">
+				<div class="pc">
+					<div class="top__concept--right-wrap">
+						<img src="<?php echo APP_ASSETS_IMG ?>top/img_concept_big.jpg" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="top__concept--list" id="concept">
+				<div class="top__concept--item">
+					<figure class="mh_sp">
+						<img src="<?php echo APP_ASSETS_IMG ?>top/img_concept_01.jpg" alt="">
+					</figure>
+					<div class="tbl mh_sp">
+						<div class="tblc">
+							<p>子育て世代を応援する</p>
+							<h3><a href="<?php echo APP_URL ?>financial/">資金計画</a></h3>								
+						</div>
+					</div>
+				</div>
+				<div class="top__concept--item">
+					<figure class="mh_sp">
+						<img src="<?php echo APP_ASSETS_IMG ?>top/img_concept_02.jpg" alt="">
+					</figure>
+					<div class="tbl mh_sp">
+						<div class="tblc">
+							<p>家族の安心のための</p>
+							<h3><a href="<?php echo APP_URL ?>spec/">品質・工法・保証</a></h3>		
+						</div>				
+					</div>
+				</div>
+				<div class="top__concept--item">
+					<figure class="mh_sp">
+						<img src="<?php echo APP_ASSETS_IMG ?>top/img_concept_03.jpg" alt="">
+					</figure>
+					<div class="tbl mh_sp">
+						<div class="tblc">
+							<p>お値打ちな理由</p>
+							<h3><a href="<?php echo APP_URL ?>lineup/">商品ラインナップ</a></h3>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top__mainphotobg"></div>
+		<div class="top__interview">
+			<p class="top__interview--subhead">たくさんの喜びの声をいただいています！</p>
+			<p class="top__interview--title">INTERVIEW</p>
+			<h2>お客様インタビュー</h2>
+			<div class="top__interview--list">
+				<?php 
+					$inter = array(
+						'post_type' => 'interview',
+						'posts_per_page' => 3,
+						'post_status' => 'publish',
+						// 'order' => 'DESC'
+					);
+					$wp_inter = new WP_Query($inter);
+					if($wp_inter->have_posts()) :
+						while($wp_inter->have_posts()) :
+							$wp_inter->the_post();
+							$tit_inter = get_the_title();
+							$link_inter = get_the_permalink();
+		                	$time_post = (time() - strtotime(get_the_time('d.m.Y'))) / 86400;
+		                	$customer_info = get_field('customer_info');
+		                	$main_pic = get_field('main_pic');
+				 ?>
+				<div class="top__interview--item">
+					<figure>
+						<?php if($time_post < 7) : ?>
+							<span></span>
+						<?php endif; ?>
+						<a href="<?php echo $link_inter; ?>">
+						<?php if($main_pic) { ?>
+							<img src="<?php echo thumbCrop(array('img' => $main_pic['url'],'width' => 713,'height' => 457)); ?>" alt="<?php echo $tit_inter; ?>">
+						<?php } else { ?>
+							<img src="<?php echo APP_ASSETS_IMG.'interview/no_photo.jpg'; ?>" alt="<?php echo $tit_inter; ?>">
+						<?php } ?>	
+						</a>
+					</figure>
+					<h3 class="pc"><a href="<?php echo $link_inter; ?>"><?php echo my_cut_string($tit_inter,35); ?></a></h3>
+					<h3 class="sp"><a href="<?php echo $link_inter; ?>"><?php echo my_cut_string($tit_inter,25); ?></a></h3>
+					<?php if($customer_info) : ?>
+						<p><?php echo $customer_info; ?></p>
+					<?php endif; ?>
+					<a class="more" href="<?php echo $link_inter; ?>">詳しく見る</a>
+				</div>
+				<?php 
+					endwhile;
+				endif;	
+				 ?>
+			</div>
+			<div class="top__btnmore">
+				<a href="<?php echo APP_URL ?>interview/"><span>お客様インタビュー一覧</span></a>
+			</div>
+		</div>		
+		<div class="cmm_contatcBox_bg"></div>
+		<div class="top__works">
+			<p class="top__works--subhead">こだわりの詰まったお家の事例集</p>
+			<p class="top__works--title">WORKS</p>
+			<h2>事例集</h2>
+			<div class="top__works--list">
+				<?php 
+					$work = array(
+						'post_type' => 'works',
+						'posts_per_page' => 4,
+						'post_status' => 'publish',
+						// 'order' => 'DESC'
+					);
+					$wp_work = new WP_Query($work);
+					if($wp_work->have_posts()) :
+						while($wp_work->have_posts()) :
+							$wp_work->the_post();
+							$tit_work = get_the_title();
+							$link_work = get_the_permalink();
+		                	$time_post = (time() - strtotime(get_the_time('d.m.Y'))) / 86400;
+		                	$customer_info = get_field('customer_info');
+		                	$main_pic = get_field('main_pic');
+            	            $urlImg = catch_that_image();
+            				if(!$urlImg) $urlImg = APP_ASSETS_IMG."works/no_photo.jpg";
+				 ?>
+				<div class="top__works--item">
+					<figure>
+						<?php if($time_post < 7) : ?>
+							<span></span>
+						<?php endif; ?>
+						<a href="<?php echo $link_work; ?>">
+						<?php if($main_pic) { ?>
+							<img src="<?php echo thumbCrop(array('img' => $main_pic['url'],'width' => 716,'height' => 716)); ?>" alt="<?php echo $tit_work; ?>">
+						<?php } else { ?>
+							<img src="<?php echo thumbCrop(array('img' => $urlImg,'width' => 716,'height' => 716)); ?> " alt="<?php echo $tit_work; ?>">    
+						<?php } ?>
+						</a>
+					</figure>
+					<?php 
+			            $termname = '';
+			            $terms = get_the_terms($post->ID, 'workscat');
+			            foreach($terms as $term) { 
+			                $termname = $term->name; 
+			                echo '<p class="cate"><a href="'.get_term_link($term).'">'.$termname.'</a></p>';
+			            }
+			         ?>
+					<h3 class="pc"><a href="<?php echo $link_work; ?>"><?php echo my_cut_string($tit_work, 35); ?></a></h3>
+					<h3 class="sp"><a href="<?php echo $link_work; ?>"><?php echo my_cut_string($tit_work, 25); ?></a></h3>
+					<?php if($customer_info) : ?>
+					<p class="customer"><?php echo $customer_info; ?></p>
+					<?php endif; ?>
+					<a class="more" href="<?php echo $link_work; ?>">詳しく見る</a>
+				</div>
+				<?php 
+					endwhile;
+				endif;	
+				 ?>
+			</div>
+			<div class="top__btnmore">
+				<a href="<?php echo APP_URL ?>works/"><span>事例集一覧</span></a>
+			</div>
+		</div>
+		<div class="top__event-ser">
+			<p class="top__event-ser--subhead">後悔しない家づくりのために</p>
+			<p class="top__event-ser--title">EVENT<br class="sp">& SEMINAR</p>
+			<h2>見学会・セミナー</h2>	
+			<div class="top__event-ser--list">
+				<?php 
+					$event = array(
+						'post_type' => 'event',
+						'posts_per_page' => 2,
+						'post_status' => 'publish',
+						// 'order' => 'DESC'
+					);
+					$wp_event = new WP_Query($event);
+					if($wp_event->have_posts()) :
+						while($wp_event->have_posts()) :
+							$wp_event->the_post();
+							$tit_event = get_the_title();
+							$link_event = get_the_permalink();
+            	            $location = get_field('location');
+            				$time_event = get_field('time_event');
+		                	$main_pic = get_field('main_pic');
+            	            $urlImg = catch_that_image();
+            				if(!$urlImg) $urlImg = APP_ASSETS_IMG."event/no_photo.jpg";
+				 ?>
+				<div class="top__event-ser--item">
+					<figure>
+						<a href="<?php echo $link_event; ?>">
+							<?php if($main_pic) { ?>
+			                <img src="<?php echo thumbCrop(array('img' => $main_pic['url'],'width' => 320,'height' => 205)); ?>" alt="<?php echo $title; ?>">
+			                <?php } else { ?>
+			                <img src="<?php echo thumbCrop(array('img' => $urlImg,'width' => 320,'height' => 205)); ?> " alt="<?php echo $title; ?>">    
+			                <?php } ?>   
+						</a>
+					</figure>
+					<?php 
+			            $termname = '';
+			            $terms = get_the_terms($post->ID, 'eventcat');
+			            foreach($terms as $term) { 
+			                $termname = $term->name; 
+			                echo '<p class="cate cate01"><a href="'.get_term_link($term).'">'.$termname.'</a></p>';
+			            }
+			         ?>
+					<?php if($location) : ?>
+					<p class="location">場所：<?php echo $location; ?></p>
+					<?php endif; ?>
+					<?php if($time_event) : ?>
+					<p class="date">開催日：<?php echo $time_event; ?></p>
+					<?php endif; ?>
+					<p class="title"><a href="<?php echo $link_event; ?>"><?php echo $tit_event; ?></a></p>
+					<a class="more" href="<?php echo $link_event; ?>">詳しく見る</a>
+				</div>
+				<?php 
+					endwhile;
+				endif;	
+				 ?>
+			</div>		
+			<div class="top__btnmore">
+				<a href="<?php echo APP_URL ?>event/"><span>見学会・セミナー一覧</span></a>
+			</div>
+		</div>
+		<div class="top__staff">
+			<p class="top__staff--subhead">家づくり情報や絆ハウスの情報が満載</p>
+			<p class="top__staff--title">STAFF BLOG</p>
+			<h2>スタッフブログ</h2>
+			<div class="top__staff--list">
+				<?php 
+					$st_blog = array(
+						'post_type' => 'blog',
+						'posts_per_page' => 2,
+						'post_status' => 'publish',
+						// 'order' => 'DESC'
+					);
+					$wp_st_blog = new WP_Query($st_blog);
+					if($wp_st_blog->have_posts()) :
+						while($wp_st_blog->have_posts()) :
+							$wp_st_blog->the_post();
+							$tit_st_blog = get_the_title();
+							$link_st_blog = get_the_permalink();
+		                	$main_pic = get_field('main_pic');
+		                	$urlImg = catch_that_image();
+		                	if(!$urlImg) $urlImg = APP_ASSETS_IMG.'blog/nophoto_arc.jpg';
+				 ?>
+				<div class="top__staff--item">
+					<figure>
+						<a href="<?php echo $link_st_blog; ?>">
+							<?php if($main_pic) { ?>
+                            <img src="<?php echo thumbCrop(array('img' => $main_pic['url'],'width' => 230,'height' => 148)); ?>" alt="<?php echo $tit_st_blog; ?>">
+                            <?php } else { ?>
+                            <img src="<?php echo thumbCrop(array('img' => $urlImg,'width' => 230,'height' => 148)); ?> " alt="<?php echo $tit_st_blog; ?>">    
+                            <?php } ?>  
+						</a>
+					</figure>
+					<div>
+						<p class="date"><?php echo the_time("Y/m/d"); ?></p>
+						<p class="title">
+							<a href="<?php echo $link_st_blog; ?>">
+								<span class="pc"><?php echo my_cut_string($tit_st_blog,35); ?></span>
+								<span class="sp"><?php echo my_cut_string($tit_st_blog,23); ?></span>
+							</a>
+						</p>
+						<a class="more" href="<?php echo $link_st_blog; ?>">詳しく見る</a>						
+					</div>
+				</div>
+				<?php 
+					endwhile;
+				endif;	
+				 ?>
+			</div>	
+			<div class="top__btnmore">
+				<a href="<?php echo APP_URL ?>blog/"><span>スタッフブログ一覧</span></a>
+			</div>					
+		</div>
+		<!-- contactbox	 -->
+		<?php include(APP_PATH.'/libs/contactBox.php'); ?>
+    </div><!-- #wrap -->
 
-            <section class="workstyle__intro">
-                <div class="workstyle__intro--content">
-                    <div class="container">
-                        <div class="txt clearfix">
-                            <h2>クラウドサービス対応</h2>
-                            <h3>勤次郎 Enterprise シリーズ</h3>
-                            <p>最適なソリューションで企業の“働き方改革”と“健康経営”をご支援</p> 
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- image -->
-
-            <section class="sec_intro">
-                <h4 class="tit_under"><span>２０１９年４月１日から</span><br>働き方改革関連法が順次施行されます</h4>
-                    <div class="sec_item1">
-                        <div class="container">
-                            <div class="list_box">
-                                <h4 class="title02">働き方改革関連法概要</h4>
-                                <div class="boxlist">
-                                    <div class="Lst01">
-                                        <p>
-                                            <span class="Lstnum">01</span>
-                                            <span class="Lsttext">時間外労働の上限規制</span>
-                                        </p>
-                                        <p>
-                                            <span class="Lstnum">02</span>
-                                            <span class="Lsttext">フレックスタイム制の精算期間拡大</span>
-                                        </p>
-                                        <p>
-                                            <span class="Lstnum">03</span>
-                                            <span class="Lsttext">有給休暇の取得義務化</span>
-                                        </p>
-                                        <p>
-                                            <span class="Lstnum">04</span>
-                                            <span class="Lsttext">勤務間インターバル制度の普及促進</span>
-                                        </p>
-                                    </div>
-                                    <div class="Lst02">
-                                        <p>
-                                            <span class="Lstnum">05</span>
-                                            <span class="Lsttext">中小企業の残業代割増率の引き上げ</span>
-                                        </p>
-                                        <p>
-                                            <span class="Lstnum">06</span>
-                                            <span class="Lsttext">産業医・産業保険機能の強化</span>
-                                        </p>
-                                        <p>
-                                            <span class="Lstnum">07</span>
-                                            <span class="Lsttext">高度プロフェッショナル制度の新設</span>
-                                        </p>
-                                        <p>
-                                            <span class="Lstnum">08</span>
-                                            <span class="Lsttext">同一労働・同一賃金制度</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="white_box">
-                                <h4 class="title02">
-                                    <span class="icon_point"><img src="<?php echo APP_ASSETS; ?>img/workstyle/icon_point.svg"></span>
-                                    <span class="tit">就業管理において、様々な制度改正が必要になります<br>御社の就業管理は今のままでも大丈夫でしょうか？</h4></span>
-                                <ul>
-                                    <li>労働時間や勤務状況を「適正に把握する」仕組みや社内の制度改正が求められます</li>
-                                    <li>法制度や様々な働き方に柔軟に対応することができる就業システムの導入が必要です</li>
-                                    <li>時間管理だけではなく、従業員の生産性向上や心身の健康増進の取組みも必要です</li>
-                                </ul>
-                                <div class="btn_center">
-                                    <span><img class="txt_enpr" src="<?php echo APP_ASSETS; ?>img/workstyle/txt_enterprise.svg"></img></span>
-                                    <a href="/catalog/" class="button01">資料請求をする</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </section>
-            <!-- sec_intro -->
-
-            <section class="sec_item2">
-                <div class="container">
-                    <h4 class="tit_under"><span>勤次郎Enterprise</span>は<br>働き方改革関連法に対応</h4>
-                    <ul class="list01">
-                        <li class="item">
-                            <h4 class="item__title"><span class="number">01</span><span class="text">高度プロフェッショナル制度</span></h4>
-                            <div class="item__content">                               
-                                <ol>
-                                    <li>4週で4日以上の休日を取っていない場合、アラーム通知を行うことができます</li>
-                                    <li>2週連続で勤務している従業員をピックアップし、アラーム通知を行うことができます</li>
-                                </ol>                                 
-                                <div class="daBox">
-                                    <img src="workstyle/img-top-workstyle.png">
-                                </div>                         
-                                <a class="item__close visible-xs"><img  src="/assets/img/products/employment/description/btn_close.png" alt=""></a>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <h4 class="item__title"><span class="number">02</span><span class="text">最新の法改正に対応</span></h4>
-                            <div class="item__content">
-                                <ol>
-                                    <li>36協定時間に（月100時間／年間720時間／平均80時間）の上限設定ができます</li>
-                                    <li>36協定時間や平均時間に対して、アラーム通知を行うことができます</li>
-                                    <li>上限時間を超えた特例申請が出来ないように制御することができます</li>
-                                    <li>年間勤務表に平均の残業時間を出力することができます</li>
-                                </ol> 
-                                <div class="daBox">
-                                </div>
-                                <a class="item__close visible-xs"><img  src="/assets/img/products/employment/description/btn_close.png" alt=""></a>
-                            </div>
-                        </li>
-
-                        <li class="item">
-                            <h4 class="item__title"><span class="number">03</span><span class="text">有給休暇の取得義務化</span></h4>
-                            <div class="item__content">
-                                <ol>
-                                    <li>年休使用数が5日未満の従業員をピックアップし、休暇残数管理表の出力やアラーム通知を行うことができます</li>
-                                    <li>年休付与日が近づいている従業員をピックアップし、取得を促すことができます</li>
-                                </ol> 
-                                <div class="daBox">
-                                </div>
-                                <a class="item__close visible-xs"><img  src="/assets/img/products/employment/description/btn_close.png" alt=""></a>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <h4 class="item__title"><span class="number">04</span><span class="text">勤務間インターバル制度</span></h4>
-                            <div class="item__content">
-                                <ol>
-                                    <li>前日の退勤から当日の出勤までの時間を計算し、基準時間に満たない場合は、アラーム通知を行うことができます</li>
-                                </ol> 
-                                <div class="daBox">
-                                </div>
-                                <a class="item__close visible-xs"><img  src="/assets/img/products/employment/description/btn_close.png" alt=""></a>
-                            </div>
-                        </li>
-
-                        <li class="item">
-                            <h4 class="item__title"><span class="number">05</span><span class="text">フレックスタイム制の精算期間拡大</span></h4>
-                            <div class="item__content">
-                                <ol>
-                                    <li>3ヶ月繰越の計算に対応します</li>
-                                    <li>週平均50時間を超過した時間を計算することができます</li>
-                                </ol> 
-                                <div class="daBox">
-                                </div>
-                                <p class="sbanner__txt"></p>
-                                <a class="item__close visible-xs"><img  src="/assets/img/products/employment/description/btn_close.png" alt=""></a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <!-- /sec_2item -->
-
-            <section class="sec_item3">
-                <div class="tbl">
-                    <img src="<?php echo APP_ASSETS; ?>img/workstyle/tbl.png">
-                </div>
-            </section>
-            <!-- /sectionss03 -->
-
-            <section class="sec_item4">
-                <div class="sban">
-                  <h4><span class="sban__1">法対応だけではない</span>取組みの効果</h4>
-                </div>
-                <div class="container">
-                    <div class="roundlist">
-                        <div class="roundlist__item">
-                          <p><span>生産性向上</span></p>  
-                        </div> 
-                        <div class="roundlist__item">
-                          <p><span>従業員満足度UP</span></p>  
-                        </div> 
-                        <div class="roundlist__item">
-                          <p><span>企業イメージUP</span></p>  
-                        </div> 
-                        <div class="roundlist__item">
-                          <p><span>医療費抑制</span></p>  
-                        </div> 
-                    </div>
-                    <div class="btn_center">
-                        <span><img class="txt_enpr" src="<?php echo APP_ASSETS; ?>img/workstyle/txt_enterprise.svg"></span>
-                        <a href="/catalog/" class="button01">資料請求をする</a>
-                    </div>
-                </div>
-
-            </section>
-            <!-- /sectionss04 -->
-        </main>
-    </div>
     <!-- Footer
     ================================================== -->
-<!--     <?php include(APP_PATH.'libs/footer1.php'); ?> -->
+    <?php include(APP_PATH.'/libs/footer.php'); ?>
+    <script src="<?php echo APP_ASSETS ?>js/lib/slick.min.js"></script>
+    <script>
+ 		if (window.matchMedia('screen and (max-width:767px)').matches) {
+ 			$('.mh_sp').matchHeight();
+ 		} else {
+
+ 		}
+ 		$(document).ready(function(){
+ 			var slider = $('.top__mainphoto--slick');
+
+	        slider.on('init', function(slick){
+	            setTimeout(function(){
+	                $('.slide0 img').css('visibility','visible');
+	            }, 300);
+	        });
+
+	        slider.slick({
+	            autoplay: true,
+	            fade: true,
+	            dots: false,
+	            speed: '3000',
+	            arrows: false,
+	            pauseOnFocus: false,
+	            pauseOnHover: false,
+	            mobileFirst: true
+	            });	
+ 		});
+    </script>
 <!-- End Document
 ================================================== -->
 </body>
