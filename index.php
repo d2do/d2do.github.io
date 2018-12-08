@@ -27,7 +27,7 @@ include(APP_PATH.'libs/head1.php');
                     <h2 class="common_heading__h2">働き方改革</h2>
                 </div>
             </section>
-            <section class="common_breadcrumbs">
+            <section class="common_breadcrumbs">  
                 <div class="container">
                     <ul class="common_breadcrumbs__list">
                         <li class="common_breadcrumbs__item"><a href="<?php echo APP_URL; ?>">HOME</a></li> /
