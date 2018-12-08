@@ -1,0 +1,16 @@
+AuthType Basic
+AuthName "Guest"
+AuthUserFile /home/aliveweb-info/www/inspect.alive-web.info/kizna/.htpasswd
+Require valid-user
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /kizna/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /kizna/index.php [L]
+</IfModule>
+
+# END WordPress

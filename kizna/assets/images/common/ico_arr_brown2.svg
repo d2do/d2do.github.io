@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4b3218;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Symbol_15_1" data-name="Symbol 15 – 1" transform="translate(-438 -4336)">
+    <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-1" cx="7.5" cy="7.5" r="7.5" transform="translate(453 4351) rotate(180)"/>
+    <g id="Group_15" data-name="Group 15" transform="translate(1435.123 5454.938) rotate(180)">
+      <path id="Path_10" data-name="Path 10" class="cls-2" d="M927.609,1045.019l3.666,3.667-3.666,3.667" transform="translate(61.013 62.751)"/>
+      <line id="Line_1" data-name="Line 1" class="cls-2" x1="7" transform="translate(985.304 1111.43)"/>
+    </g>
+  </g>
+</svg>

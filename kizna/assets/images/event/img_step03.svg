@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 282 70">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.247;
+      }
+
+      .cls-2 {
+        fill: #4b3218;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #fff;
+        letter-spacing: 0.04em;
+      }
+
+      .cls-3 {
+        font-size: 12px;
+        font-family: YuGo-Medium, YuGothic;
+        font-weight: 500;
+      }
+
+      .cls-4 {
+        font-size: 16px;
+        font-family: YuGo-Bold, YuGothic;
+        font-weight: 700;
+      }
+
+      .cls-5 {
+        opacity: 0.248;
+      }
+
+      .cls-6 {
+        fill: none;
+        stroke: #4b3218;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Group_983" data-name="Group 983" transform="translate(-34 -3498)">
+    <g id="Group_695" data-name="Group 695" class="cls-1" transform="translate(-12 -12)">
+      <circle id="Ellipse_4" data-name="Ellipse 4" class="cls-2" cx="35" cy="35" r="35" transform="translate(46 3510)"/>
+      <text id="STEP1" class="cls-3" transform="translate(81 3540)"><tspan x="-19.434" y="0">STEP1</tspan></text>
+      <text id="入力" class="cls-4" transform="translate(81 3560)"><tspan x="-16.32" y="0">入力</tspan></text>
+    </g>
+    <g id="Group_696" data-name="Group 696" class="cls-5" transform="translate(94 -12)">
+      <circle id="Ellipse_4-2" data-name="Ellipse 4" class="cls-2" cx="35" cy="35" r="35" transform="translate(46 3510)"/>
+      <text id="STEP2" class="cls-3" transform="translate(81 3540)"><tspan x="-19.434" y="0">STEP2</tspan></text>
+      <text id="確認" class="cls-4" transform="translate(81 3560)"><tspan x="-16.32" y="0">確認</tspan></text>
+    </g>
+    <g id="Group_697" data-name="Group 697" transform="translate(200 -12)">
+      <circle id="Ellipse_4-3" data-name="Ellipse 4" class="cls-2" cx="35" cy="35" r="35" transform="translate(46 3510)"/>
+      <text id="STEP3" class="cls-3" transform="translate(81 3540)"><tspan x="-19.434" y="0">STEP3</tspan></text>
+      <text id="完了" class="cls-4" transform="translate(81 3560)"><tspan x="-16.32" y="0">完了</tspan></text>
+    </g>
+    <g id="Group_268" data-name="Group 268" transform="translate(6891.595 2596.99) rotate(90)">
+      <g id="Group_15" data-name="Group 15" transform="translate(928.01 6777.277) rotate(-90)">
+        <path id="Path_10" data-name="Path 10" class="cls-6" d="M0,0,8,8,0,16" transform="translate(7.241)"/>
+        <line id="Line_1" data-name="Line 1" class="cls-6" x1="15.274" transform="translate(0 7.984)"/>
+      </g>
+    </g>
+    <g id="Group_698" data-name="Group 698" transform="translate(6997.595 2596.99) rotate(90)">
+      <g id="Group_15-2" data-name="Group 15" transform="translate(928.01 6777.277) rotate(-90)">
+        <path id="Path_10-2" data-name="Path 10" class="cls-6" d="M0,0,8,8,0,16" transform="translate(7.241)"/>
+        <line id="Line_1-2" data-name="Line 1" class="cls-6" x1="15.274" transform="translate(0 7.984)"/>
+      </g>
+    </g>
+  </g>
+</svg>
